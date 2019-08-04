@@ -3,17 +3,19 @@
 % in response to
 % https://tex.stackexchange.com/questions/502712/how-to-construct-the-following-symbolsubset-with-arrows/502753#502753
 
-\makeatletter
-\newcommand{\rightarrowhead}[1][.3em]{\mathrel{%
-   \hbox{\let\f@size\sf@size\usefont{U}{lasy}{m}{n}\symbol{41}}}}
+\documentclass{article}
 
-\newcommand{\leftarrowhead}[1][.3em]{\mathrel{%
-   \hbox{\let\f@size\sf@size\usefont{U}{lasy}{m}{n}\symbol{40}}}}
+\makeatletter
+\newcommand{\rightarrowhead}{\mathrel{%
+  \hbox{\let\f@size\sf@size\usefont{U}{lasy}{m}{n}\symbol{41}}}}
+
+\newcommand{\leftarrowhead}{\mathrel{%
+  \hbox{\let\f@size\sf@size\usefont{U}{lasy}{m}{n}\symbol{40}}}}
 \makeatother
 
-\newcommand\specialsubset{\mathrel{\ooalign{$\subset$\cr
-  \hidewidth\raise.800ex\hbox{$\rightarrowhead\mkern1mu$}\cr
-  \hidewidth\raise.800ex\hbox{$\rightarrowhead\mkern4mu$}\cr
+\newcommand\specialsubset{\mathrel{\ooalign{$\subset$\cr%
+  \hidewidth\raise.800ex\hbox{$\rightarrowhead\mkern1mu$}\cr%
+  \hidewidth\raise.800ex\hbox{$\rightarrowhead\mkern4mu$}\cr%
   \hidewidth\raise-0.440ex\hbox{$\leftarrowhead\mkern2.75mu$}}}}
 
 \begin{document}
