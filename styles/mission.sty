@@ -1,0 +1,126 @@
+% Mission Template
+
+\ProvidesPackage{mission}
+
+\RequirePackage{enumerate}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage[breakable]{tcolorbox}
+\RequirePackage{breqn}
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+
+\newcommand{\comp}{ \,{\scriptstyle \stackrel{\circ}{}}\, }
+\newcommand{\nullset}{\mathrm{O}\!\!\!\!\big/\,}
+
+\newcommand{\sameas}{ \Leftrightarrow }
+\newcommand{\union}{ \cup }
+\newcommand{\intersect}{ \cap }
+\newcommand{\Power}{ \mathcal{P} }
+\newcommand{\PowerS}{ \mathcal{P}(S) }
+
+\newcommand{\RN}{ \mathbb{R} }
+\newcommand{\CN}{ \mathbb{C} }
+\newcommand{\ZN}{ \mathbb{Z} }
+\newcommand{\QN}{ \mathbb{Q} }
+\newcommand{\NN}{ \mathbb{N} }
+\newcommand{\FN}{ \mathbb{F} }
+
+\newcommand{\OH}{\theta}
+\newcommand{\rar}{\rightarrow}
+
+\newcommand{\ihat}{ \, \widehat{{i}}}
+\newcommand{\jhat}{\, \widehat{j}}
+\newcommand{\khat}{\, \widehat{k}}
+\newcommand{\xhat}{ \, \widehat{{x}}}
+\newcommand{\yhat}{\, \widehat{y}}
+\newcommand{\zhat}{\, \widehat{z}}
+\newcommand{\xihat}{ \, \widehat{{x_i}}}
+\newcommand{\xjhat}{\, \widehat{x_j}}
+\newcommand{\xkhat}{\, \widehat{x_k}}
+
+\newcommand{\vecF}{\vec{F}}
+\newcommand{\vecA}{\vec{A}}
+\newcommand{\vecJ}{\vec{J}}
+\newcommand{\vecE}{\vec{E}}
+\newcommand{\vecB}{\vec{B}}
+\newcommand{\vecT}{\vec{T}}
+\newcommand{\vecN}{\vec{N}}
+
+\newcommand{\vecC}{\vec{C}}
+
+\newcommand{\ppx}{\frac{\Par}{\Par x}}
+\newcommand{\ppy}{\frac{\Par}{\Par y}}
+\newcommand{\ppz}{\frac{\Par}{\Par z}}
+
+\newcommand{\ppr}{\frac{\Par}{\Par r}}
+\newcommand{\ppOH}{\frac{\Par}{\Par \OH}}
+\newcommand{\ppphi}{\frac{\Par}{\Par \phi}}
+
+\newcommand{\pfpx}{\frac{\Par f}{\Par x}}
+\newcommand{\pfpy}{\frac{\Par f}{\Par y}}
+\newcommand{\pfpz}{\frac{\Par f}{\Par z}}
+
+\newcommand{\grad}{\text{\bf{grad}}}
+\newcommand{\curl}{\text{\bf{curl}}}
+\newcommand{\divg}{\text{\bf{div}}}
+
+\newcommand{\Pari}{{\Par}_{i}}
+\newcommand{\Park}{{\Par}_{k}}
+
+\newcommand{\sdot}{\overset{.}{s}}
+\newcommand{\sdotdot}{\overset{..}{s}}
+
+\newcommand{\vdot}{\overset{.}{v}}
+
+\newcommand{\DOT}{ {\bf \, {\scriptscriptstyle \stackrel{\bullet}{{}}} \, }}
+\newcommand{\COMMENT}{\setlength{\unitlength}{5.3cm}
+	\begin{picture}(1,1)
+	\put(0,0){\line(1,0){3}}
+	\put(3,0){\line(0,1){1}}
+	\put(3,1){\line(-1,0){3}}
+	\put(0,1){\line(0,-1){1}}
+	\end{picture}}
+\newcommand{\la}{ \langle }
+\newcommand{\ra}{ \rangle }
+
+\newcommand{\Ecal}{{\cal{E}}}
+\newcommand{\Xcal}{{\cal{X}}}
+\newcommand{\Ycal}{{\cal{Y}}}
+\newcommand{\Zcal}{{\cal{Z}}}
+
+\newcommand{\dydx}{ \frac{dy}{dx} }
+\newcommand{\dydxdx}{ \frac{d^2y}{dx^2} }
+\newcommand{\eps}{ \epsilon }
+\newcommand{\taside}[1]{\text{(#1)}}
+\newcommand{\dx}{\,dx}
+
+\newcommand{\parens}[1]{\left( #1 \right)}
+
+% Operators: Linear Algebra
+\DeclareMathOperator{\Null}{null}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\rref}{rref}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\trace}{trace}
+
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\innp}{\langle}{\rangle}
+\DeclarePairedDelimiter{\parens}{(}{)}
+
+\newenvironment{solution}{\begin{tcolorbox}[colback=white,colframe=black,parbox=false,breakable]}{\end{tcolorbox}}
+\newenvironment{sproof}{\begin{solution}\begin{proof}}{\end{proof}\end{solution}}
+\newenvironment{senum}{\begin{solution}\begin{enumerate}[label=\textbf{(\alph*.)},leftmargin=7mm]}{\end{enumerate}\end{solution}}
+\newcommand{\answer}[1]{\boxed{#1}\hspace{1mm}}
+\newcommand{\header}[3]{
+	\fbox{\fbox{\parbox{7.2in}{{\scshape{Math #1: #3 \hfill Mission #2  }} }}} \hfill \\
+	\vspace{-0.2mm}
+}
+\newcommand{\honor}[2]{
+	\noindent
+	\centering I, \textbf{#1}, have read the relevant portions of Chapter #2.
+}
+
+\endinput
