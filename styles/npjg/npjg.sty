@@ -1,0 +1,94 @@
+% My compiled LaTeX wisdom.
+\ProvidesPackage{npjg}[LaTeX Macro Repository]
+
+% Sensible packages.
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{array}
+
+
+% Theorem environments.
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+
+% semantic helps
+\renewcommand{\vec}[1]{\textbf{#1}}
+
+\newcommand{\union}{ \cup }
+\newcommand{\intersect}{ \cap }
+
+\newcommand{\transpose}[1]{#1^{\mathsf{T}}}
+\newcommand{\inv}[1]{#1^{-1}}
+
+\newcommand{\ppy}{\frac{\Par}{\Par y}}
+\newcommand{\ppz}{\frac{\Par}{\Par z}}
+
+\newcommand{\struct}[2]{\langle #1,#2 \rangle}
+
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
+\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{#1}
+\DeclarePairedDelimiterX{\gen}[1]{\langle}{\rangle}{#1}
+
+
+% proper operators
+\DeclareMathOperator{\Null}{null}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\rref}{rref}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\Div}{div}
+
+\DeclareMathOperator{\rel}{\mathcal R}
+\DeclareMathOperator{\lcm}{\text{lcm}}
+\DeclareMathOperator{\sgn}{sgn}
+
+\DeclareMathOperator*{\bigplus}{\scalerel{+}}
+\makeatletter
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+
+% Keystroke savers
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\la}{ \langle }
+\newcommand{\ra}{ \rangle }
+
+\newcommand{\dee}{\mathrm{d}} 	% differentials
+\newcommand{\E}{\mathrm{e}}     % euler's number
+
+\newcommand{\dy}{\dee y}
+\newcommand{\dydx}{ \frac{\dee y}{\dee x} }
+\newcommand{\dydxdx}{ \frac{\dee^2 y}{\dee x^2} }
+
+
+% math-mode table columns
+\newcolumntype{C}{>{$}c<{$}}
+\newcolumntype{R}{>{$}r<{$}}
+\newcolumntype{L}{>{$}l<{$}}
