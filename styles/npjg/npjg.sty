@@ -10,7 +10,7 @@
 \RequirePackage{array}
 
 
-% Theorem environments.
+% Theorem-linke environments.
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{claim}[theorem]{Claim}
@@ -19,6 +19,7 @@
 
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{solution}[theorem]{Solution}
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
@@ -29,26 +30,29 @@
 \newtheorem{remark}[theorem]{Remark}
 
 
-% semantic helps
+% Semantic helps.
+%% shorthands for awkward key combinations
 \renewcommand{\vec}[1]{\textbf{#1}}
-
-\newcommand{\union}{ \cup }
-\newcommand{\intersect}{ \cap }
-
 \newcommand{\transpose}[1]{#1^{\mathsf{T}}}
 \newcommand{\inv}[1]{#1^{-1}}
 
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
+\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{#1}
+
+\newcommand{\union}{ \cup }
+\newcommand{\intersect}{ \cap }
 \newcommand{\ppy}{\frac{\Par}{\Par y}}
 \newcommand{\ppz}{\frac{\Par}{\Par z}}
 
+%% binary structure
 \newcommand{\struct}[2]{\langle #1,#2 \rangle}
 
-\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
-\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{#1}
+%% group generator
 \DeclarePairedDelimiterX{\gen}[1]{\langle}{\rangle}{#1}
 
 
-% proper operators
+% Proper operators.
+%% roman font math operators
 \DeclareMathOperator{\Null}{null}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Span}{span}
@@ -57,10 +61,12 @@
 \DeclareMathOperator{\trace}{trace}
 \DeclareMathOperator{\curl}{curl}
 \DeclareMathOperator{\Div}{div}
-
-\DeclareMathOperator{\rel}{\mathcal R}
-\DeclareMathOperator{\lcm}{\text{lcm}}
+\DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\alt}{Alt}
+
+%% other operators
+\DeclareMathOperator{\rel}{\mathcal R}
 
 \DeclareMathOperator*{\bigplus}{\scalerel{+}}
 \makeatletter
@@ -69,7 +75,8 @@
 \makeatother
 
 
-% Keystroke savers
+% Keystroke savers.
+%% "blackboard-fonted" letters for the reals, naturals etc.
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
 \newcommand{\R}{\mathbb R}
@@ -80,15 +87,20 @@
 \newcommand{\la}{ \langle }
 \newcommand{\ra}{ \rangle }
 
-\newcommand{\dee}{\mathrm{d}} 	% differentials
-\newcommand{\E}{\mathrm{e}}     % euler's number
+%% roman font letters
+\newcommand{\dee}{\mathrm{d}} 	% roman font d for differentials
+\newcommand{\E}{\mathrm{e}}     	% for Euler's number e
 
+%% derivative shortcuts
 \newcommand{\dy}{\dee y}
 \newcommand{\dydx}{ \frac{\dee y}{\dee x} }
 \newcommand{\dydxdx}{ \frac{\dee^2 y}{\dee x^2} }
 
+%% if you think the sum and product signs are too big in your math mode;
+\newcommand{\littlesum}{\mathop{{\textstyle \sum}}}
+\newcommand{\littleprod}{\mathop{{\textstyle \prod}}}
 
-% math-mode table columns
+%% Math-mode table columns.
 \newcolumntype{C}{>{$}c<{$}}
 \newcolumntype{R}{>{$}r<{$}}
 \newcolumntype{L}{>{$}l<{$}}
