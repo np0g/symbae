@@ -4,13 +4,13 @@
 \pgfmathsetseed{2}
 
 \newcommand{\setblob}[1][]{
-  \begin{center}
-    \begin{tikzpicture}
-      \draw [#1] plot [smooth cycle, tension=1, domain=0:320, samples=10] (\x:{2+rand/2});
-    \end{tikzpicture}
-  \end{center}
+  \begin{tikzpicture}
+    \draw [#1] plot [smooth cycle, tension=1, domain=0:320, samples=10] (\x:{2+rand/2});
+  \end{tikzpicture}
 }
 
 \begin{document}
-  \setblob[blue, dashed, thick]
+\begin{center}
+  \setblob[blue, dashed, very thick]
+\end{center}
 \end{document}
