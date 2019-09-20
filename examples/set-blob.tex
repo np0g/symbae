@@ -1,0 +1,16 @@
+\documentclass[preview]{standalone}
+\usepackage{tikz}
+
+\pgfmathsetseed{2}
+
+\newcommand{\setblob}{
+  \begin{center}
+    \begin{tikzpicture}
+      \draw [black, dashed, thick] plot[smooth cycle, tension=1, domain=0:320, samples=10] (\x:{2+rand/2});
+    \end{tikzpicture}
+  \end{center}
+}
+
+\begin{document}
+  \setblob
+\end{document}
