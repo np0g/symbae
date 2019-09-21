@@ -3,14 +3,15 @@
 
 \pgfmathsetseed{2}
 
-\newcommand{\setblob}[1][]{
-  \begin{tikzpicture}
-    \draw [#1] plot [smooth cycle, tension=1, domain=0:320, samples=10] (\x:{2+rand/2});
-  \end{tikzpicture}
+\newcommand{\blob}{
+    plot [smooth cycle, tension=1, domain=0:320, samples=10] (\x:{2+rand/2})
 }
 
 \begin{document}
 \begin{center}
-  \setblob[blue, dashed, very thick]
+  \begin{tikzpicture}
+    \draw [blue, dashed, very thick] \blob;
+  \end{tikzpicture}
 \end{center}
 \end{document}
+
