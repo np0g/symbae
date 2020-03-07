@@ -13,13 +13,12 @@
 % Theorem-linke environments.
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{claim}[theorem]{Claim}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{claim}{Claim}
 
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{solution}[theorem]{Solution}
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
@@ -27,14 +26,19 @@
 \newtheorem{exercise}[theorem]{Exercise}
 
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{question}{Question}
+\newtheorem*{solution}{Solution}
 
 
 % Semantic helps.
 %% shorthands for awkward key combinations
-\renewcommand{\vec}[1]{\textbf{#1}}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
 \newcommand{\transpose}[1]{#1^{\mathsf{T}}}
 \newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\set}[2]{\left\{ #1 : #2 \right\}}
+\newcommand{\setdiff}{\backslash}
+\newcommand{\setball}[2]{B_{#1}(#2)}
 
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
 \DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{#1}
@@ -104,3 +108,10 @@
 \newcolumntype{C}{>{$}c<{$}}
 \newcolumntype{R}{>{$}r<{$}}
 \newcolumntype{L}{>{$}l<{$}}
+
+% Command swaps.
+%% \phi <-> \varphi
+\let\temp\phi
+\let\phi\varphi
+\let\varphi\temp
+\let\temp\undefined

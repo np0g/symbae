@@ -1,11 +1,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{homework}[2019/08/24 Vanilla Homework Class]
-\LoadClass[12pt,reqno]{amsart}
+\LoadClass[10pt,reqno]{amsart}
 
 % Package requirements.
 \RequirePackage[left=.75in,right=.75in,top=.75in,bottom=.75in]{geometry}
 \RequirePackage{npjg}
-\RequirePackage{enumitem}
+\RequirePackage[inline]{enumitem}
 \RequirePackage{xparse}
 \RequirePackage{xstring}
 \RequirePackage{calc}
