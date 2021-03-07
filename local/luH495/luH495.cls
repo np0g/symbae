@@ -1,7 +1,7 @@
 % luH495.cls, created from thesis.w (1.0)
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{luH495}[2018/01/31 v0.0 Thesis APA for Liberty University Honor's Program]
+\ProvidesClass{luH495}[2020/02/01 v1.0 Thesis APA for Liberty University Honors Program]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
@@ -14,22 +14,12 @@
 % \setallmainfonts{Times New Roman}
 %
 % Else:
-% \usepackage{stix}
-
-% Set Header for Table of Contents
-\renewcommand{\contentsname}{}
-
-% Double and single spacing
-\linespread{2}
-\newcommand{\LUHsinglespacing}{\baselineskip = 0.5\baselineskip}
-\newcommand{\LUHdoublespacing}{\baselineskip = 2\baselineskip}
-
-% APA suggests that lines not be justified
-\raggedright
+% \RequirePackage{newtxtext}
+% \RequirePackage{newtxmath}
 
 % Set up page spacing and margins
 \setlength{\topmargin}{0in}
-%\setlength{\topskip}{0in} % Specifically warned in classes.dtx not to set to zero
+% \setlength{\topskip}{0in} % Specifically warned in classes.dtx not to set to zero
 
 \setlength{\headsep}{0.2in}
 
@@ -44,6 +34,17 @@
 
 \setlength{\parindent}{0.5in}
 
+% Set Header for Table of Contents
+\renewcommand{\contentsname}{}
+
+% Double and single spacing
+\linespread{2}
+\newcommand{\LUHsinglespacing}{\baselineskip = 0.5\baselineskip}
+\newcommand{\LUHdoublespacing}{\baselineskip = 2\baselineskip}
+
+% APA suggests that lines not be justified
+\raggedright
+
 % Make footnote font size the same as everything else
 \let\oldfootnotesize=\footnotesize
 \let\footnotesize=\normalsize
@@ -51,33 +52,9 @@
 % Add \shorttitle command
 \newcommand{\shorttitle}[1]{\global\def\LUHshorttitle{\MakeUppercase{#1}}}
 
-% Require \shorttitle to be in the preamble
-\AtBeginDocument{%
-  \ifx\LUHshorttitle\undefined
-    \ClassError{luH495}{%
-      No short title defined!\MessageBreak
-      Use \protect\shorttitle\space in your document's preamble to\MessageBreak
-      define the short title for the running head}
-      {You need to use the \protect\shorttitle\space command in the preamble.}
-  \fi
-}
-
 % Add \Fall and \Spring commands
 \newcommand{\Spring}{\global\def\LUHsemester{Spring}\let\Spring\relax\let\Fall\relax}
 \newcommand{\Fall}{\global\def\LUHsemester{Fall}\let\Spring\relax\let\Fall\relax}
-
-% Require either a \Fall or \Spring command to be in the preamble
-\AtBeginDocument{%
-  \ifx\LUHsemester\undefined
-    \ClassError{luH495}{%
-      Semester not specified!\MessageBreak
-      Use \protect\Spring\space or \protect\Fall\space in your
-      document's preamble to \MessageBreak specify the semester you are taking
-      HONR 495}
-      {You need to use the \protect\Fall\space or \protect\Spring\space commands
-      in the preamble.}
-  \fi
-}
 
 % Add a \Year command
 \def\LUHyear{\number\year}
@@ -86,61 +63,18 @@
 % Add \Chair command
 \newcommand{\Chair}[1]{\global\def\LUHchair{#1}}
 
-% Require \Chair to be in the preamble
-\AtBeginDocument{%
-  \ifx\LUHchair\undefined
-    \ClassError{luH495}{%
-      No Thesis Chair specified!\MessageBreak
-      Use \protect\Chair\space in your document's preamble to\MessageBreak
-      define your Thesis Chair for the signature page}
-      {You need to use the \protect\Chair\space command in the preamble.}
-  \fi
-}
+% Add \Keywords command
+\newcommand{\Keywords}[1]{\global\def\LUHkeywords{#1}}
 
 % Add \FirstReader command
 \newcommand{\FirstReader}[1]{\global\def\LUHfirstreader{#1}}
 
-% Require \FirstReader to be in the preamble
-\AtBeginDocument{%
-  \ifx\LUHfirstreader\undefined
-    \ClassError{luH495}{%
-      No Thesis First Reader specified!\MessageBreak
-      Use \protect\FirstReader\space in your document's preamble to\MessageBreak
-      define your Thesis First Reader for the signature page}
-      {You need to use the \protect\FirstReader\space command in the preamble.}
-  \fi
-}
-
 % Add \SecondReader command
 %\newcommand{\SecondReader}[1]{\global\def\LUHsecondreader{#1}}
-%
-%% Require \SecondReader to be in the preamble
-%\AtBeginDocument{%
-%  \ifx\LUHsecondreader\undefined
-%    \ClassError{luH495}{%
-%      No Thesis Second Reader specified!\MessageBreak
-%      Use \protect\SecondReader\space in your document's preamble to\MessageBreak
-%      define your Thesis Second Reader for the signature page}
-%      {You need to use the \protect\SecondReader\space command in the preamble.}
-%  \fi
-%}
 
 % Add \HonorsDirector and \HonorsAssistantDirector commands
 \newcommand{\HonorsDirector}{\global\def\LUHprof{Jim Nutter, Ph.D.\\Honors Director}}
-\newcommand{\HonorsAssistantDirector}{\global\def\LUHprof{David E. Schweitzer, Ph.D.\\Assistant Honors Director}}
-
-% Require either a \HonorsDirector or \HonorsAssistantDirector command to be in the preamble
-\AtBeginDocument{%
-  \ifx\LUHprof\undefined
-    \ClassError{luH495}{%
-      Honor's Professor not specified!\MessageBreak
-      Use \protect\HonorsDirector\space or \protect\HonorsAssistantDirector\space
-      in your \MessageBreak document's preamble to specify the professor you are
-      \MessageBreak taking HONR 495 with}
-      {You need to use either the \protect\HonorsDirector\space or
-      \protect\HonorsAssistantDirector\space commands in the preamble.}
-  \fi
-}
+\newcommand{\HonorsAssistantDirector}[1]{\global\def\LUHprof{#1\\Assistant Honors Director}}
 
 % Set header for the document
 \pagestyle{headings}
@@ -152,26 +86,83 @@
 % Add a \firstpage macro that accounts for the title and subtitle
 \newcommand{\firstpage}{%
 \ifx\LUHsubtitle\undefined
-    \noindent\makebox[\hsize]{\hss\strut\@title\hss}
+\noindent\makebox[\hsize]{\hss\strut\textbf{\@title}\hss}
 \else
-    \noindent\makebox[\hsize]{\hss\strut\@title\hss}
+    \noindent\makebox[\hsize]{\hss\strut\textbf{\@title}\hss}
     \makebox[\hsize]{\hss\strut\LUHsubtitle\hss}
 \fi
-\part{Introduction}
 }
 
 % Redefine \maketitle
 \newlength\LUHtmpLength
 \renewcommand{\maketitle}{%
 
+% Require \shorttitle to be in the preamble
+  \ifx\LUHshorttitle\undefined
+    \ClassError{luH495}{%
+      No short title defined!\MessageBreak
+      Use \protect\shorttitle\space in your document's preamble to\MessageBreak
+      define the short title for the running head}
+      {You need to use the \protect\shorttitle\space command in the preamble.}
+  \fi
+
+% Require either a \Fall or \Spring command to be in the preamble
+  \ifx\LUHsemester\undefined
+    \ClassError{luH495}{%
+      Semester not specified!\MessageBreak
+      Use \protect\Spring\space or \protect\Fall\space in your
+      document's preamble to \MessageBreak specify the semester you are taking
+      HONR 495}
+      {You need to use the \protect\Fall\space or \protect\Spring\space commands
+      in the preamble.}
+  \fi
+
+% Require \Chair to be in the preamble
+  \ifx\LUHchair\undefined
+    \ClassError{luH495}{%
+      No Thesis Chair specified!\MessageBreak
+      Use \protect\Chair\space in your document's preamble to\MessageBreak
+      define your Thesis Chair for the signature page}
+      {You need to use the \protect\Chair\space command in the preamble.}
+  \fi
+
+% Require \FirstReader to be in the preamble
+  \ifx\LUHfirstreader\undefined
+    \ClassError{luH495}{%
+      No Thesis First Reader specified!\MessageBreak
+      Use \protect\FirstReader\space in your document's preamble to\MessageBreak
+      define your Thesis First Reader for the signature page}
+      {You need to use the \protect\FirstReader\space command in the preamble.}
+  \fi
+
+%% Require \SecondReader to be in the preamble
+%  \ifx\LUHsecondreader\undefined
+%    \ClassError{luH495}{%
+%      No Thesis Second Reader specified!\MessageBreak
+%      Use \protect\SecondReader\space in your document's preamble to\MessageBreak
+%      define your Thesis Second Reader for the signature page}
+%      {You need to use the \protect\SecondReader\space command in the preamble.}
+%  \fi
+
+% Require either a \HonorsDirector or \HonorsAssistantDirector command to be in the preamble
+  \ifx\LUHprof\undefined
+    \ClassError{luH495}{%
+      Honor's Professor not specified!\MessageBreak
+      Use \protect\HonorsDirector\space or \protect\HonorsAssistantDirector\space
+      in your \MessageBreak document's preamble to specify the professor you are
+      \MessageBreak taking HONR 495 with}
+      {You need to use either the \protect\HonorsDirector\space or
+      \protect\HonorsAssistantDirector\space commands in the preamble.}
+  \fi
+
 \newpage
 \begingroup
 
 \pagestyle{headings}
-%\renewcommand{\@oddhead}{Running head: \LUHshorttitle\hss\thepage}
+% \renewcommand{\@oddhead}{Running head: \LUHshorttitle\hss\thepage}
 \renewcommand{\@oddhead}{\LUHshorttitle\hss\thepage}
 
-\setlength{\LUHtmpLength}{96bp}
+\setlength{\LUHtmpLength}{1.5in}
 \addtolength{\LUHtmpLength}{-\headsep}
 \addtolength{\LUHtmpLength}{-\topskip}
 \addtolength{\LUHtmpLength}{-\baselineskip}
@@ -181,9 +172,9 @@
 \ifx\LUHsubtitle\undefined
     \noindent\makebox[\hsize]{\hss}
 %    \vspace{2pt}
-    \makebox[\hsize]{\hss\strut\@title\hss}
+    \makebox[\hsize]{\hss\strut\textbf{\@title}\hss}
 \else
-    \noindent\makebox[\hsize]{\hss\strut\@title\hss}
+    \noindent\makebox[\hsize]{\hss\strut\textbf{\@title}\hss}
 %    \vspace{2pt}
     \makebox[\hsize]{\hss\strut\LUHsubtitle\hss}
 \fi
@@ -211,6 +202,7 @@ Liberty University\\
 \end{center}
 
 \pagebreak
+\renewcommand{\@oddhead}{\LUHshorttitle\hss\thepage}
 \LUHsinglespacing
 
 
@@ -273,6 +265,17 @@ Date
 \let\maketitle=\relax
 }
 
+% Add abstract environment
+\newenvironment{LUHabstract}{
+  \part{Abstract}
+  \noindent
+}{
+  \ifx\LUHkeywords\undefined\else
+  \newline
+  \indent \textit{Keywords:} \LUHkeywords
+  \fi
+  \pagebreak
+}
 
 % Set up sectioning commands
 \def\@part[#1]#2{
@@ -338,5 +341,3 @@ Date
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Added things %%%%%%%%%%%%%%%%%%%%%
-
-
