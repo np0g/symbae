@@ -17,6 +17,17 @@
 % \RequirePackage{newtxtext}
 % \RequirePackage{newtxmath}
 
+% Set Header for Table of Contents
+\renewcommand{\contentsname}{}
+
+% Double and single spacing
+\linespread{2}
+\newcommand{\LUHsinglespacing}{\baselineskip = 0.5\baselineskip}
+\newcommand{\LUHdoublespacing}{\baselineskip = 2\baselineskip}
+
+% APA suggests that lines not be justified
+\raggedright
+
 % Set up page spacing and margins
 \setlength{\topmargin}{0in}
 % \setlength{\topskip}{0in} % Specifically warned in classes.dtx not to set to zero
@@ -33,17 +44,6 @@
 \addtolength{\textheight}{-\headsep}
 
 \setlength{\parindent}{0.5in}
-
-% Set Header for Table of Contents
-\renewcommand{\contentsname}{}
-
-% Double and single spacing
-\linespread{2}
-\newcommand{\LUHsinglespacing}{\baselineskip = 0.5\baselineskip}
-\newcommand{\LUHdoublespacing}{\baselineskip = 2\baselineskip}
-
-% APA suggests that lines not be justified
-\raggedright
 
 % Make footnote font size the same as everything else
 \let\oldfootnotesize=\footnotesize
