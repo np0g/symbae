@@ -18,19 +18,8 @@
 % \RequirePackage{newtxmath}
 
 % Set up page spacing and margins
-\setlength{\topmargin}{0in}
-% \setlength{\topskip}{0in} % Specifically warned in classes.dtx not to set to zero
-
-\setlength{\headsep}{0.2in}
-
-\setlength{\oddsidemargin}{0in}
-\setlength{\evensidemargin}{0in}
-
-\setlength{\textwidth}{6.5in}
-
-\setlength{\textheight}{9in}
-\addtolength{\textheight}{-\headheight}
-\addtolength{\textheight}{-\headsep}
+\RequirePackage[paperwidth=8.5in,paperheight=11.0in,
+  left=1.0in,right=1.0in,top=1.0in,bottom=1.0in]{geometry}
 
 \setlength{\parindent}{0.5in}
 
